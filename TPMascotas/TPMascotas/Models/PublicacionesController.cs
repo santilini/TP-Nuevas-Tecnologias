@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace TPMascotas.Models
 {
-    public class DBController : Controller
+    public class PublicacionesController : Controller
     {
-        // GET: DB
-        public ActionResult Index()
+        // GET: Publicaciones
+        public ActionResult Publicacion()
         {
-            return View();
+            return View(new Publicacion());
         }
     }
 }
