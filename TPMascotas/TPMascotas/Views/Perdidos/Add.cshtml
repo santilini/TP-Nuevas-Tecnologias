@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Perdidos";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<div class=" container">
+    <h3>Ingrese</h3>
+    <form action="/Perdidos/Add" method="post">
+        <input type="radio" name="tipo" value="Perro"> Perro
+        <input type="radio" name="tipo" value="Gato"> Gato
+        <input type="radio" name="tipo" value="Otro"> Otro <br>
+
+        <input type="radio" name="sexo" value="macho"> Macho
+        <input type="radio" name="sexo" value="hembra"> Hembra <br>
+
+        <input type="text" name="raza" placeholder="Raza del animal"> Escriba la raza <br>
+
+        <input type="text" name="desc" placeholder="Informacion extra del animal"> Informacion fisica que ayude a encontrarlo <br>
+        <input type="Submit" value="Submit">
+        <input type="file" name="fotoAnimal">
+    </form>
+</div>

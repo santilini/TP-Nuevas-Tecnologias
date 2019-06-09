@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace TPMascotas.Models
 {
-    public class AdoptadosController : Controller
+    public class PerdidosController : Controller
     {
-        // GET: Adoptados
+        // GET: Perdidos
         public ActionResult Index()
         {
             return View();

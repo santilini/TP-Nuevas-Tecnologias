@@ -1,13 +1,15 @@
-﻿@{
-    ViewBag.Title = "Perdidos";
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-
 <div class=" container">
     <h3>Ingrese</h3>
-    <form action="/Home/PerdidosAdd" method="post">
+    <form action="/Adoptados/Add" method="post">
         <input type="radio" name="tipo" value="Perro"> Perro
         <input type="radio" name="tipo" value="Gato"> Gato
         <input type="radio" name="tipo" value="Otro"> Otro <br>
@@ -22,3 +24,4 @@
         <input type="file" name="fotoAnimal">
     </form>
 </div>
+

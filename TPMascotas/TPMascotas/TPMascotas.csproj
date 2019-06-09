@@ -131,6 +131,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdoptadosController.cs" />
+    <Compile Include="Models\EncontradosController.cs" />
+    <Compile Include="Models\PerdidosController.cs" />
     <Compile Include="Models\Publicacion.cs" />
     <Compile Include="Models\PublicacionesController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -171,12 +173,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Perdidos.cshtml" />
-    <Content Include="Views\Home\PerdidosAdd.cshtml" />
+    <Content Include="Views\Perdidos\Index.cshtml" />
+    <Content Include="Views\Perdidos\Add.cshtml" />
+    <Content Include="Views\Adoptados\Index.cshtml" />
+    <Content Include="Views\Encontrados\Index.cshtml" />
+    <Content Include="Views\Encontrados\Add.cshtml" />
+    <Content Include="Views\Adoptados\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Adoptados\" />
     <Folder Include="Views\DB\" />
     <Folder Include="Views\Publicaciones\" />
   </ItemGroup>

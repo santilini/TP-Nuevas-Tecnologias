@@ -31,18 +31,7 @@ namespace TPMascotas.Controllers
             ViewBag.Message = "Publicaciones de animales perdidos";
             return View();
         }
-        [HttpGet]
-        public ActionResult PerdidosAdd()
-        {
-            ViewBag.Message = "Publica el animal encontrado.";
-            return View();
-        }
-        [HttpPost]
-        public ActionResult PerdidosAdd(String tipo, String sexo, String raza, String desc)
-        {
-            ViewBag.Message = "Publica el animal encontrado " + tipo + " "+ sexo + " "+ raza+ ". " + desc +".";
-            return View();
-        }
+ 
         public ActionResult Encontrados()
         {
             ViewBag.Message = "Publicaciones de animales encontrados";
