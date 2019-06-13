@@ -131,6 +131,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdoptadosController.cs" />
+    <Compile Include="Models\Adoptado.cs" />
     <Compile Include="Models\EncontradosController.cs" />
     <Compile Include="Models\PerdidosController.cs" />
     <Compile Include="Models\Publicacion.cs" />
