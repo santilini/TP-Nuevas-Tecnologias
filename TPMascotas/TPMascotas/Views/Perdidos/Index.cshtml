@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TPMascotas.Models.Perdido
+
+@{
     ViewBag.Title = "Perdidos";
 }
 
@@ -8,6 +10,10 @@
         Publicaciones de Animales perdidos, encotraste una mascota que crees que puede tener duenio? busca aca.
     </h2>
     <ul>
+        @Model.descripcion
+        @Model.raza
+        @Model.recompensa
+        @Model.tipoAnimal
         <li> Aca van las fotos con una pequenia descripcion </li>
     </ul>
     @Html.ActionLink("Animales add", "Add", "Perdidos")

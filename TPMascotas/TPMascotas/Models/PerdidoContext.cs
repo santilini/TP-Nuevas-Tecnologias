@@ -8,6 +8,6 @@ namespace TPMascotas.Models
 {
     public class PerdidoContext : DbContext
     {
-        public DbSet<Perdido> perdidos;
+        public DbSet<Perdido> Perdidos { get; set; }
     }
 }
