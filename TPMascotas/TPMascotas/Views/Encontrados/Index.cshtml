@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Encontrados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Encontrados</h2>
+
+<h2>@ViewBag.message</h2>
+
+
+<div class=" container">
+    <h2>
+        Publicaciones de Animales Perdidos buscando a su familia.
+    </h2>
+    <ul>
+        <li>
+            Aca van las fotos con una pequeña descripcion
+            Esta es otra pagina de encontrados
+        </li>
+    </ul>
+    @Html.ActionLink("Agregar Publicacion", "Add", "Encontrados")
+</div>
