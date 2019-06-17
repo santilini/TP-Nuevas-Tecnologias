@@ -259,3 +259,7 @@ C:\Users\Monica\Source\Repos\santilini\TP-Nuevas-Tecnologias\TPMascotas\TPMascot
 C:\Users\Monica\Source\Repos\santilini\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.csproj.CopyComplete
 C:\Users\Monica\Source\Repos\santilini\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.dll
 C:\Users\Monica\Source\Repos\santilini\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.pdb
+\\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\bin\EntityFramework.dll
+\\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\bin\EntityFramework.SqlServer.dll
+\\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\bin\EntityFramework.xml
+\\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\bin\EntityFramework.SqlServer.xml
