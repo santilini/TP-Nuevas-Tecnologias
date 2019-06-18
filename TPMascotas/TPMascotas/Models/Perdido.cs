@@ -10,7 +10,7 @@ namespace TPMascotas.Models
     public class Perdido : Publicacion
     {
         [Key]
-        public int Num { get; set; }
+        public int PerdidoID { get; set; }
         public String descripcion { get; set; }
         public float recompensa { get; set; }
         public String zona { get; set; }

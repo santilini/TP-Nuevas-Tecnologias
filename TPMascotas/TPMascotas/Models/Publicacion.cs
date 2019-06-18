@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace TPMascotas.Models
 {
@@ -12,6 +14,11 @@ namespace TPMascotas.Models
         public string Raza { get; set; }
         public float Tamanio { get; set; }
         public string Nombre { get; set; }
+        [ForeignKey("Usuario")]
+        public int UsuarioID { get; set; }
+        public Usuario Usuario { get; set; }
+        
+
 
         public Publicacion()
         {
