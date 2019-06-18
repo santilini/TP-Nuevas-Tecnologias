@@ -8,11 +8,11 @@ namespace TPMascotas.Models
 {
     public class AdoptadosController : Controller
     {
-        List<Adoptado> porAhora = new List<Adoptado>();
+    //    List<Adoptado> porAhora = new List<Adoptado>();
         // GET: Adoptados
         public ActionResult Index()
         {
-            return View(porAhora);
+            return View();
         }
 
         [HttpGet]
@@ -24,8 +24,8 @@ namespace TPMascotas.Models
         [HttpPost]
         public ActionResult Add(string tipo, string nombre, string raza, int edad, float tamaño, int nivelSociabilidad, bool sociableanimal, string sexo)
         {
-            Adoptado animal = new Adoptado(tipo, nombre, raza, edad, tamaño, nivelSociabilidad, sociableanimal, sexo);
-            porAhora.Add(animal);
+          //  Adoptado animal = new Adoptado(tipo, nombre, raza, edad, tamaño, nivelSociabilidad, sociableanimal, sexo);
+            //porAhora.Add(animal);
             ViewBag.Message = "Publica el animal encontrado " + tipo + " " + sexo + " " + raza + ". "  + ".";
             return View();
         }
