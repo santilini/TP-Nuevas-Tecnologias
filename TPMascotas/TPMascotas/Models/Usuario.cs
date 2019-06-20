@@ -10,7 +10,7 @@ namespace TPMascotas.Models
     public class Usuario
     {
         [Key]
-        public int UsuarioID { get; set; }
+        public int Id { get; set; }
         public string Mail { get; set; }
         public string Contrasenia { get; set; }
         public string NombreCompleto { get; set; }

@@ -9,7 +9,7 @@ namespace TPMascotas.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(TPMascotas.Models.PerdidoContext context)

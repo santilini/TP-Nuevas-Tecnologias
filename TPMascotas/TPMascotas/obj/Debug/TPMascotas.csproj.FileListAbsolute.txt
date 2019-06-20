@@ -263,5 +263,5 @@ C:\Users\Monica\Source\Repos\santilini\TP-Nuevas-Tecnologias\TPMascotas\TPMascot
 \\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\bin\EntityFramework.SqlServer.dll
 \\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\bin\EntityFramework.xml
 \\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\bin\EntityFramework.SqlServer.xml
-\\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.Migrations.Inicial.resources
+\\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.Migrations.Inical.resources
 \\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.csproj.GenerateResource.cache

@@ -9,13 +9,12 @@ namespace TPMascotas.Models
 {
     public class Perdido : Publicacion
     {
-        [Key]
-        public int PerdidoID { get; set; }
+        
         public String descripcion { get; set; }
         public float recompensa { get; set; }
         public String zona { get; set; }
 
-        public Perdido(string descripcion, float recompensa, string zona, string foto, string tipoAnimal, string raza, float tamanio, string nombre) : base(foto, tipoAnimal, raza, tamanio, nombre)
+        public Perdido(string descripcion, float recompensa, string zona, string foto, string tipoAnimal, string raza, float tamanio, string nombre, string desc) : base(foto, tipoAnimal, raza, tamanio, nombre, desc)
         {
             
             this.descripcion = descripcion;

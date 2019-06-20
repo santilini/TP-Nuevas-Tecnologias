@@ -9,11 +9,10 @@ namespace TPMascotas.Models
 {
     public class Encontrado : Publicacion
     {
-        [Key]
-        public int EncontradoID { get; set; }
+        
         public string Localidad { get; set; }
 
-        public Encontrado(string localidad, string foto, string raza, float tamanio, string nombre ="Animal Perdido", string tipoAnimal = "Perro") : base(foto, tipoAnimal, raza, tamanio, nombre)
+        public Encontrado(string localidad, string foto, string raza, float tamanio, string Desc, string nombre ="Animal Perdido", string tipoAnimal = "Perro") : base(foto, tipoAnimal, raza, tamanio, nombre, Desc)
         {
             this.Localidad = localidad;
         }

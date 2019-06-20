@@ -9,9 +9,6 @@ namespace TPMascotas.Models
 {
     public class Adoptado : Publicacion
     {
-        [Key]
-        public int AdoptadoID { get; set; }
-
         public int Edad { get; set; }
        // private List<String> enfermedades;
         public int NivelSociabilidad { get; set; }
@@ -19,7 +16,7 @@ namespace TPMascotas.Models
         public String Sexo { get; set; }
        
 
-        public Adoptado(string tipo, string nombre, string raza, int edad, float tamanio, int nivelSociabilidad, bool sociableanimal, string sexo, string foto) : base (foto, tipo, raza, tamanio, nombre)
+        public Adoptado(string tipo, string nombre, string raza, int edad, float tamanio, int nivelSociabilidad, bool sociableanimal, string sexo, string foto, string desc) : base (foto, tipo, raza, tamanio, nombre, desc)
         {
             this.Edad = edad;
             this.NivelSociabilidad = nivelSociabilidad;

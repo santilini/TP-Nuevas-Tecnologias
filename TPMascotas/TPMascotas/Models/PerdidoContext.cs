@@ -11,7 +11,6 @@ namespace TPMascotas.Models
         public DbSet<Perdido> Perdidos { get; set; }
         public DbSet<Adoptado> Adoptados { get; set; }
         public DbSet<Encontrado> Encontrados { get; set; }
-
         public DbSet<Usuario> Usuarios { get; set; }
              
     }

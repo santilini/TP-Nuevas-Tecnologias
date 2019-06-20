@@ -1,5 +1,5 @@
 ﻿
-@{
+@model TPMascotas.ViewModels.AdoptadoPruebaViewModel
     ViewBag.Title = "Adoptados";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,10 +11,26 @@
     <h2>
         Publicaciones de Animales disponibles para adoptar.
     </h2>
+    @foreach (var Adoptado in Model.Adoptados)
+    {
+        @Adoptado.Desc
+        @Adoptado.Edad
+        @Adoptado.Nombre
+    }
     <ul>
-       
-        <li> Aca van las fotos con una pequenia descripcion
-        Esta es otra pagina</li>
+        @foreach (var Adoptado in Model.Adoptados)
+        {
+            <li>
+            @Adoptado.Desc
+            @Adoptado.Edad
+            @Adoptado.Nombre
+                </li>
+        }
+
+        <li>
+            Aca van las fotos con una pequenia descripcion
+            Esta es otra pagina
+        </li>
     </ul>
     @Html.ActionLink("Animales add", "Add","Adoptados")
 </div>

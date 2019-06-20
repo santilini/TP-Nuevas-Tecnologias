@@ -9,6 +9,8 @@ namespace TPMascotas.Models
 {
     public class Publicacion
     {
+        [Key]
+        public int Id { get; set; }
         public string Foto { get; set; }
         public string TipoAnimal { get; set; }
         public string Raza { get; set; }
@@ -17,7 +19,8 @@ namespace TPMascotas.Models
         [ForeignKey("Usuario")]
         public int UsuarioID { get; set; }
         public Usuario Usuario { get; set; }
-        
+        public string Desc { get; set; }
+
 
 
         public Publicacion()
@@ -29,13 +32,14 @@ namespace TPMascotas.Models
             Nombre = null;
 
         }
-        protected Publicacion(string foto, string tipoAnimal, string raza, float tamanio, string nombre)
+        protected Publicacion(string foto, string tipoAnimal, string raza, float tamanio, string nombre, string desc)
         {
             this.Foto = foto;
             this.TipoAnimal = tipoAnimal;
             this.Raza = raza;
             this.Tamanio = tamanio;
             this.Nombre = nombre;
+            this.Desc = desc;
         }
     }
 }

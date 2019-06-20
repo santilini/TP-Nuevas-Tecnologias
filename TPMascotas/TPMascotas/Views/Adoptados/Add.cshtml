@@ -1,4 +1,4 @@
-﻿
+﻿@model TPMascotas.Models.Adoptado
 @{
     ViewBag.Title = "Add";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,30 +10,23 @@
 <div class=" container">
     <h3>Ingrese</h3>
     <form action="/Adoptados/Add" method="post">
-
         <p>Ingrese el tipo del animal</p>
         <input type="radio" name="tipo" value="Perro"> Perro
         <input type="radio" name="tipo" value="Gato"> Gato
         <input type="radio" name="tipo" value="Otro"> Otro <br>
-
         <input type="radio" name="sexo" value="macho"> Macho
         <input type="radio" name="sexo" value="hembra"> Hembra <br />
         <input type="text" name="raza" placeholder="Raza del animal"> Escriba la raza <br>
         <input type="text" name="desc" placeholder="Informacion extra del animal"> Informacion fisica que ayude a encontrarlo <br>
-
         <p>Ingrese el nombre</p>
         <input type="text" name="nombre" placeholder="Nombre del animal"> Ingrese el nombre <br>
-
         <p>Seleccione el sexo del animal</p>
         <input type="radio" name="sexo" value="macho"> Macho
         <input type="radio" name="sexo" value="hembra"> Hembra <br>
-
         <p>Ingrese la raza del animal</p>
         <input type="text" name="raza" placeholder="Raza del animal"> Escriba la raza <br>
-
         <p>Ingrese el tamaño del animal</p>
         <input type="text" name="tamaño" placeholder="Tamaño del animal"> Ingrese el tamano <br>
-
         <p>Ingrese que tan sociable es con las personas</p>
         <input type="radio" name="nivelSociabilidad" value="1"> 1
         <input type="radio" name="nivelSociabilidad" value="2"> 2
@@ -49,10 +42,9 @@
         <p>Ingrese la edad</p>
         <p>Ingrese el tamaño del animal</p>
         <input type="text" name="edad" placeholder="Edad del animal"> Ingrese la edad <br>
-
+        <input type="text" name="foto" placeholder="direccion"> Ingrese la direccion de una foto del animal <br>
 
         <input type="Submit" value="Submit">
-        <input type="file" name="fotoAnimal">
     </form>
 </div>
 
