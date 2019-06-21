@@ -17,10 +17,14 @@ namespace TPMascotas.Models
         {
             _context = new PerdidoContext();
         }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ActionResult Index()
         {
             var adoptados = _context.Adoptados.ToList();
-            AdoptadoPruebaViewModel p = new AdoptadoPruebaViewModel(adoptados);
+            AdoptadoViewModel p = new AdoptadoViewModel(adoptados);
             ViewBag.Message = "Publicaciones de animales en adopcion.";
             if (adoptados != null)
                 return View(p);

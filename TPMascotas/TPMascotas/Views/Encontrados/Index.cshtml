@@ -1,23 +1,49 @@
-﻿
+﻿@model TPMascotas.ViewModels.EncontradoViewModel
 @{
     ViewBag.Title = "Encontrados";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container">
+    <h2>Encontrados</h2>
+    <form class="form-check-input">
+    <input type="text" id="myInput" class="form-control searchbox-input">
+    </form>
+    <div class="row">
 
-<h2>Encontrados</h2>
-
-<h2>@ViewBag.message</h2>
 
 
-<div class=" container">
-    <h2>
-        Publicaciones de Animales Perdidos buscando a su familia.
-    </h2>
-    <ul>
-        <li>
-            Aca van las fotos con una pequeña descripcion
-            Esta es otra pagina de encontrados
-        </li>
-    </ul>
+        @foreach (var Encontrado in Model.Encontrados)
+        {
+
+            <div class="container col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="@Encontrado.Foto" class="card-img-top img-thumbnail" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">  @Encontrado.Localidad</h5>
+                        <p class="card-text">   @Encontrado.Desc</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        }
+
+
+    </div>
+
+
+
     @Html.ActionLink("Agregar Publicacion", "Add", "Encontrados")
+    <script>
+        $('.searchbox-input').change(function () {
+            $('.card').show();
+            var filter = $(this).val(); // get the value of the input, which we filter on
+            $('.container').find(".card-title:not(:contains(" + filter + "))").parent().css('display', 'none');
+        });
+    </script>
 </div>
