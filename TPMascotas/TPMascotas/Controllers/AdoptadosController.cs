@@ -21,6 +21,7 @@ namespace TPMascotas.Models
         {
             var adoptados = _context.Adoptados.ToList();
             AdoptadoPruebaViewModel p = new AdoptadoPruebaViewModel(adoptados);
+            ViewBag.Message = "Publicaciones de animales en adopcion.";
             if (adoptados != null)
                 return View(p);
             else return Content("no tenemos publicaciones de mascotas, por favor pruebe el proximo mes");
@@ -41,10 +42,12 @@ namespace TPMascotas.Models
         {
             Adoptado a = new Adoptado(tipo, nombre, raza, edad, tamaño, nivelSociabilidad, sociableanimal, sexo, foto, desc);
             _context.Adoptados.Add(a);
-          //  Adoptado animal = new Adoptado(tipo, nombre, raza, edad, tamaño, nivelSociabilidad, sociableanimal, sexo);
+            _context.SaveChanges();
+            //  Adoptado animal = new Adoptado(tipo, nombre, raza, edad, tamaño, nivelSociabilidad, sociableanimal, sexo);
             //porAhora.Add(animal);
-            ViewBag.Message = "Publica el animal encontrado " + tipo + " " + sexo + " " + raza + ". "  + ".";
-            return View();
+            //  ViewBag.Message = "Publica el animal encontrado " + tipo + " " + sexo + " " + raza + ". "  + ".";
+            // return View();
+            return RedirectToAction("Index", "Adoptados");
         }
     }
 }

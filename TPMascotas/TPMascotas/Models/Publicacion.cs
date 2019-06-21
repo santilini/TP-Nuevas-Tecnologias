@@ -16,9 +16,9 @@ namespace TPMascotas.Models
         public string Raza { get; set; }
         public float Tamanio { get; set; }
         public string Nombre { get; set; }
-        [ForeignKey("Usuario")]
-        public int UsuarioID { get; set; }
-        public Usuario Usuario { get; set; }
+     //   [ForeignKey("Usuario")]
+     //   public int UsuarioID { get; set; }
+     //   public Usuario Usuario { get; set; }
         public string Desc { get; set; }
 
 
