@@ -20,9 +20,11 @@ namespace TPMascotas.Models
             _context.Dispose();
         }
         // GET: Encontrados
-        public ActionResult Index()
+        public ActionResult Index(string tipoDefiltro, string contenido, int page = 1)
         {
             var encontrados = _context.Encontrados.ToList();
+           
+       
             EncontradoViewModel p = new EncontradoViewModel(encontrados);
             ViewBag.Message = "Publicaciones de animales encontrados sin hogar.";
             if (encontrados != null)

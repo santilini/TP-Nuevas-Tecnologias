@@ -3,14 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TPMascotas.Models;
+using TPMascotas.ViewModels;
 
 namespace TPMascotas.Controllers
 {
+
+ 
     public class HomeController : Controller
     {
+        private PerdidoContext _context;
+
+        public HomeController()
+        {
+            _context = new PerdidoContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ActionResult Index()
         {
-            return View();
+           FullViewModel viewmodel = new FullViewModel(_context.Adoptados.ToList(), _context.Encontrados.ToList(), _context.Perdidos.ToList());
+
+            return View(viewmodel);
         }
 
         public ActionResult About()

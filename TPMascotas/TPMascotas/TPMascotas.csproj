@@ -155,6 +155,7 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\FullViewModel.cs" />
     <Compile Include="ViewModels\PerdidoViewModel.cs" />
     <Compile Include="ViewModels\EncontradoViewModel.cs" />
     <Compile Include="ViewModels\AdoptadoViewModel.cs" />

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TPMascotas.ViewModels.FullViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -6,10 +7,17 @@
     <h2>
         Publicaciones de Animales perdidos, encotraste una mascota que crees que puede tener duenio? busca aca.
     </h2>
-    <ul>
-        <li> *******Aca van las fotos con una pequenia descripcion *****</li>
-        <li> </li>
-    </ul>
+    <div class="row">
+        @foreach (var Perdido in Model.Perdidos)
+        {
+            <div class="col-sm-3 float-left">
+
+                <img src="@Perdido.Foto" class="img-thumbnail"> </img>
+            </div>
+
+        }
+    </div>
+    </div>
     @Html.ActionLink("Animales perdidos", "Index", "Perdidos")
 
 </div>
@@ -17,18 +25,30 @@
     <h2>
         Publicaciones de Animales Encontrados, perdiste tu mascota? por ahi aca puedas encontrarla.
     </h2>
-    <ul>
-        <li> Aca van las fotos con una pequenia descripcion </li>
-    </ul>
+    <div class="row float-left">
+        @foreach (var Encontrado in Model.paginacion())
+        {
+            <div class="col-sm-3">
+                <img src="@Encontrado.Foto" class="img-thumbnail"> 
+            </div>
+
+        }
+    </div>
     @Html.ActionLink("Animales encontrados", "Index", "Encontrados")
 </div>
 <div class=" container">
     <h2>
         Publicaciones de Animales en adopcion, Queres adoptar una nueva mascota? Busca aca!
     </h2>
-    <ul>
-        <li> Aca van las fotos con una pequenia descripcion </li>
-    </ul>
-    @Html.ActionLink("Animales en adopcion", "Index", "Adoptados")
+    <div class="row">
+        @foreach (var Adoptado in Model.Adoptados)
+        {
+            <div class="col-sm-3 float-left">
 
+                <img src="@Adoptado.Foto" class="img-thumbnail"> 
+            </div>
+
+        }
+    </div>
+    @Html.ActionLink("Animales en adopcion", "Index", "Adoptados")
 </div>
