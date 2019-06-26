@@ -47,5 +47,12 @@ namespace TPMascotas.Models
             // ViewBag.Message = "Publica el animal encontrado " + tipo + " " + sexo + " " + raza + ". " + desc + ".";
             return RedirectToAction("Index", "Encontrados");
         }
+        public ActionResult Encontrado(int id)
+        {
+            var Encontrado = _context.Encontrados.SingleOrDefault(l => l.Id == id);
+            if (Encontrado == null)
+                return HttpNotFound();
+            else  return View(Encontrado);
+        }
     }
 }

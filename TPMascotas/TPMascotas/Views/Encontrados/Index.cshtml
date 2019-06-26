@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h5 class="card-title">  @Encontrado.Localidad</h5>
                         <p class="card-text">   @Encontrado.Desc</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        @Html.ActionLink("Sos mi duenio?", "Encontrado", new { id = Encontrado.Id}, null);
                     </div>
                 </div>
             </div>
@@ -47,7 +47,6 @@
     $('input').change(function () {
         $('.card').hide();
         var filter = $(this).val();
-        console.log(filter);
         $(".card:contains('" + filter + "')").show();
     });
     
