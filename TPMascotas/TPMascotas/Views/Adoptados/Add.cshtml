@@ -9,39 +9,41 @@
 
 <div class=" container">
     <h3>Ingrese</h3>
-    <form action="/Adoptados/Add" method="post">
-        <p>Ingrese el tipo del animal</p>
-        <input type="radio" name="tipo" value="Perro"> Perro
-        <input type="radio" name="tipo" value="Gato"> Gato
-        <input type="radio" name="tipo" value="Otro"> Otro <br>
+    @using (Html.BeginForm("Add", "Adoptados"))
 
-        <input type="radio" name="sexo" value="macho"> Macho
-        <input type="radio" name="sexo" value="hembra"> Hembra <br />
+    {
+    <div class="form-group">
+        @Html.LabelFor(m => m.TipoAnimal)
+        @Html.TextBoxFor(m => m.TipoAnimal, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Nombre)
+        @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Raza)
+        @Html.TextBoxFor(m => m.Raza, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Edad)
+        @Html.TextBoxFor(m => m.Edad, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Tamanio)
+        @Html.TextBoxFor(m => m.Tamanio, new { @class = "form-control" })
+        @Html.LabelFor(m => m.NivelSociabilidad)
+        @Html.TextBoxFor(m => m.NivelSociabilidad, new { @class = "form-control" })
+        @Html.LabelFor(m => m.SociablAanimal)
+        @Html.TextBoxFor(m => m.SociablAanimal, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Sexo)
+        @Html.TextBoxFor(m => m.Sexo, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Foto)
+        @Html.TextBoxFor(m => m.Foto, new { @class = "form-control" })
 
-        <input type="text" name="raza" placeholder="Raza"> Ingrese la raza <br>
 
-        <input type="text" name="desc" placeholder="Informacion extra"> Informacion fisica que ayude a encontrarlo <br>
 
-        <input type="text" name="nombre" placeholder="Nombre"> Ingrese el nombre <br>
 
-        <input type="text" name="tamaño" placeholder="Tamaño del animal"> Ingrese el tamaño <br>
+        <button type="submit" onclick="location.href=@Url.Action("Add", "Adoptados", null)" class="btn btn-primary">Agregar </button>
 
-        <input type="text" name="edad" placeholder="Edad del animal"> Ingrese la edad <br>
+    </div>
+    }
 
-        <p>Seleccione que tan sociable es con las personas</p>
-        <input type="radio" name="nivelSociabilidad" value="1"> 1
-        <input type="radio" name="nivelSociabilidad" value="2"> 2
-        <input type="radio" name="nivelSociabilidad" value="3"> 3
-        <input type="radio" name="nivelSociabilidad" value="4"> 4
-        <input type="radio" name="nivelSociabilidad" value="5"> 5
-
-        <p>Es sociable con otros animales?</p>
-        <input type="radio" name="sociableAnimal" value="True"> Si
-        <input type="radio" name="sociableAnimal" value="False"> No
-        <p></p>
-        <input type="text" name="foto" placeholder="direccion"> Ingrese la direccion de una foto del animal <br>
-
-        <input type="Submit" value="Submit">
-    </form>
 </div>
+
+
+
+
+
 

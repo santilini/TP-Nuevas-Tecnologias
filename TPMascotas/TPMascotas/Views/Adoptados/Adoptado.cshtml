@@ -1,0 +1,25 @@
+﻿@model TPMascotas.Models.Adoptado
+@{
+    ViewBag.Title = "Adoptado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Adoptado</h2>
+
+<div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@Model.Foto" alt="">
+        <div class="card-body">
+            <h5 class="card-title"> @Model.TipoAnimal</h5>
+            <p class="card-text">@Model.Desc</p>
+            <p class="card-text">@Model.Sexo</p>
+            <p class="card-text">@Model.Nombre</p>
+            <p class="card-text">@Model.Edad</p>
+            <p class="card-text">@Model.NivelSociabilidad</p>
+            <p class="card-text">@Model.SociablAanimal</p>
+
+
+            <a href="#" class="btn btn-primary">Adoptame</a>
+        </div>
+    </div>
+</div>

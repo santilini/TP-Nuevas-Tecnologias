@@ -1,22 +1,32 @@
-﻿
-@{
-    ViewBag.Title = "Perdidos";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model TPMascotas.Models.Perdido
 
 <div class=" container">
     <h3>Ingrese</h3>
-    <form action="/Perdidos/Add" method="post">
-        <input type="radio" name="tipo" value="Perro"> Perro
-        <input type="radio" name="tipo" value="Gato"> Gato
-        <input type="radio" name="tipo" value="Otro"> Otro <br>
-        <input type="radio" name="sexo" value="macho"> Macho
-        <input type="radio" name="sexo" value="hembra"> Hembra <br>
-        <input type="text" name="raza" placeholder="Raza del animal"> Escriba la raza <br>
-        <input type="text" name="desc" placeholder="Informacion extra del animal"> Informacion fisica que ayude a encontrarlo <br>
-        <input type="Submit" value="Submit">
-        <input type="file" name="fotoAnimal">
-    </form>
-   
+    @using (Html.BeginForm("Add", "Perdidos"))
+    {
+    <div class="form-group">
+        @Html.LabelFor(m => m.Descripcion)
+        @Html.TextBoxFor(m => m.Descripcion, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Recompensa)
+        @Html.TextBoxFor(m => m.Recompensa, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Zona)
+        @Html.TextBoxFor(m => m.Zona, new { @class = "form-control" })
+        @Html.LabelFor(m => m.TipoAnimal)
+        @Html.TextBoxFor(m => m.TipoAnimal, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Raza)
+        @Html.TextBoxFor(m => m.Raza, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Tamanio)
+        @Html.TextBoxFor(m => m.Tamanio, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Genero)
+        @Html.TextBoxFor(m => m.Genero, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Foto)
+        @Html.TextBoxFor(m => m.Foto, new { @class = "form-control" })
+
+
+
+
+        <button type="submit" onclick="location.href=@Url.Action("Add", "Perdidos", null)" class="btn btn-primary">Agregar </button>
+    </div>
+    }
+
 </div>

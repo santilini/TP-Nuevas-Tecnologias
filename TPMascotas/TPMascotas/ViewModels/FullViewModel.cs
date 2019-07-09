@@ -31,10 +31,10 @@ namespace TPMascotas.ViewModels
         public List<Encontrado> paginacion()
         {
             List<Encontrado> pagina = new List<Encontrado>();
-            if (Pag * CantidadPubPagina > Encontrados.Count)
-            {
-                throw new ArgumentException(V);
-            }
+        //    if (Pag * CantidadPubPagina > Encontrados.Count)
+        //    {
+        //        throw new ArgumentException(V);
+        //   }
             int i = 0;
             if (Pag > 1)
             {

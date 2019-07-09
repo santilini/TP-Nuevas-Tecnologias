@@ -21,9 +21,12 @@ namespace TPMascotas.Models
         {
             _context.Dispose();
         }
-        public ActionResult Index()
+        public ActionResult Index(string tipoDefiltro, string contenido, int page = 1)
         {
             var adoptados = _context.Adoptados.ToList();
+
+
+
             AdoptadoViewModel p = new AdoptadoViewModel(adoptados);
             ViewBag.Message = "Publicaciones de animales en adopcion.";
             if (adoptados != null)
@@ -38,20 +41,24 @@ namespace TPMascotas.Models
         public ActionResult Add()
         {
        
-           // ViewBag.Message = "Publica el animal encontrado.";
-            return View();
+           ViewBag.Message = "Publica el animal en adopcion.";
+            return View("Add",new Adoptado());
         }
         [HttpPost]
-        public ActionResult Add(string desc, string tipo, string nombre, string raza, int edad, float tamaño, int nivelSociabilidad, bool sociableanimal, string sexo, string foto)
+        public ActionResult Add(Adoptado adoptado)
         {
-            Adoptado a = new Adoptado(tipo, nombre, raza, edad, tamaño, nivelSociabilidad, sociableanimal, sexo, foto, desc);
-            _context.Adoptados.Add(a);
-            _context.SaveChanges();
-            //  Adoptado animal = new Adoptado(tipo, nombre, raza, edad, tamaño, nivelSociabilidad, sociableanimal, sexo);
-            //porAhora.Add(animal);
-            //  ViewBag.Message = "Publica el animal encontrado " + tipo + " " + sexo + " " + raza + ". "  + ".";
-            // return View();
-            return RedirectToAction("Index", "Adoptados");
+            
+           _context.Adoptados.Add(adoptado);
+           _context.SaveChanges();
+           return RedirectToAction("Index", "Adoptados");
+            
+        }
+        public ActionResult Adoptado(int id)
+        {
+            var Adoptado = _context.Adoptados.SingleOrDefault(l => l.Id == id);
+            if (Adoptado == null)
+                return HttpNotFound();
+            else return View(Adoptado);
         }
     }
 }

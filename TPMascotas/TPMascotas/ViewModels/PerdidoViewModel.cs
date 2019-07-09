@@ -8,11 +8,38 @@ namespace TPMascotas.ViewModels
 {
     public class PerdidoViewModel
     {
-      public List<Perdido> Perdidos { get; set; }
+        private const string V = "Pagina fuera de rango";
 
-        public PerdidoViewModel(List<Perdido> Perdidos)
+        public List<Perdido> Perdidos { get; set; }
+
+        public int I { get; set; }
+        private int CantidadPubPagina { get; set; }
+        private int pag { get; set; }
+
+        public PerdidoViewModel(List<Perdido> perdidos, int max = 20, int pagina = 1)
         {
-            this.Perdidos = Perdidos;
+            this.Perdidos = perdidos;
+            pag = pagina;
+            CantidadPubPagina = max;
+        }
+
+        public List<Perdido> paginacion()
+        {
+            List<Perdido> pagina = new List<Perdido>();
+            int i = 0;
+            if (pag > 1)
+            {
+                i += CantidadPubPagina;
+            }
+
+            while (pagina.Count < CantidadPubPagina && i < Perdidos.Count)
+            {
+                if (i < CantidadPubPagina * pag)
+                    pagina.Add(Perdidos[i]);
+
+                i++;
+            }
+            return pagina;
         }
     }
 }

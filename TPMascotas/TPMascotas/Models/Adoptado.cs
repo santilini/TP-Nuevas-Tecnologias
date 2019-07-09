@@ -11,12 +11,12 @@ namespace TPMascotas.Models
     {
         public int Edad { get; set; }
        // private List<String> enfermedades;
-        public int NivelSociabilidad { get; set; }
-        public Boolean SociablAanimal { get; set; }
+        public string NivelSociabilidad { get; set; }
+        public string SociablAanimal { get; set; }
         public String Sexo { get; set; }
        
 
-        public Adoptado(string tipo, string nombre, string raza, int edad, float tamanio, int nivelSociabilidad, bool sociableanimal, string sexo, string foto, string desc) : base (foto, tipo, raza, tamanio, nombre, desc)
+        public Adoptado(string tipo, string nombre, string raza, int edad, string tamanio, string nivelSociabilidad, string sociableanimal, string sexo, string foto, string desc) : base (foto, tipo, raza, tamanio, nombre, desc, sexo)
         {
             this.Edad = edad;
             this.NivelSociabilidad = nivelSociabilidad;

@@ -10,16 +10,16 @@ namespace TPMascotas.Models
     public class Perdido : Publicacion
     {
         
-        public String descripcion { get; set; }
-        public float recompensa { get; set; }
-        public String zona { get; set; }
+        public String Descripcion { get; set; }
+        public float Recompensa { get; set; }
+        public String Zona { get; set; }
 
-        public Perdido(string descripcion, float recompensa, string zona, string foto, string tipoAnimal, string raza, float tamanio, string nombre, string desc) : base(foto, tipoAnimal, raza, tamanio, nombre, desc)
+        public Perdido(string descripcion, float recompensa, string zona, string foto, string tipoAnimal, string raza, string tamanio, string nombre, string desc, string genero) : base(foto, tipoAnimal, raza, tamanio, nombre, desc, genero)
         {
             
-            this.descripcion = descripcion;
-            this.recompensa = recompensa;
-            this.zona = zona;
+            this.Descripcion = descripcion;
+            this.Recompensa = recompensa;
+            this.Zona = zona;
         }
         public Perdido() : base()
         {

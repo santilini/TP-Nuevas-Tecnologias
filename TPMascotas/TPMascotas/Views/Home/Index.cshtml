@@ -3,21 +3,21 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class=" container">
+<div class="container">
     <h2>
         Publicaciones de Animales perdidos, encotraste una mascota que crees que puede tener duenio? busca aca.
     </h2>
     <div class="row">
         @foreach (var Perdido in Model.Perdidos)
         {
-            <div class="col-sm-3 float-left">
+            <div class="col-sm-3 inline-block">
 
-                <img src="@Perdido.Foto" class="img-thumbnail"> </img>
+                <img src="@Perdido.Foto" class="img-thumbnail"> 
             </div>
 
         }
     </div>
-    </div>
+    
     @Html.ActionLink("Animales perdidos", "Index", "Perdidos")
 
 </div>
@@ -25,7 +25,7 @@
     <h2>
         Publicaciones de Animales Encontrados, perdiste tu mascota? por ahi aca puedas encontrarla.
     </h2>
-    <div class="row float-left">
+    <div class="row inline-block">
         @foreach (var Encontrado in Model.paginacion())
         {
             <div class="col-sm-3">
@@ -43,7 +43,7 @@
     <div class="row">
         @foreach (var Adoptado in Model.Adoptados)
         {
-            <div class="col-sm-3 float-left">
+            <div class="col-sm-3 inline-block">
 
                 <img src="@Adoptado.Foto" class="img-thumbnail"> 
             </div>

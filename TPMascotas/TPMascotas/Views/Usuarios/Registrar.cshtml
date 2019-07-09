@@ -1,0 +1,31 @@
+﻿@model TPMascotas.Models.AppUser
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+@using (Html.BeginForm("Registrar", "Usuarios"))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.Mail)
+    @Html.TextBoxFor(m => m.Mail, new { @class = "form-control" })
+    @Html.LabelFor(m => m.Contrasenia)
+    @Html.TextBoxFor(m => m.Contrasenia, new { @class = "form-control" })
+    @Html.LabelFor(m => m.Localidad)
+    @Html.TextBoxFor(m => m.Localidad, new { @class = "form-control" })
+    @Html.LabelFor(m => m.NombreCompleto)
+    @Html.TextBoxFor(m => m.NombreCompleto, new { @class = "form-control" })
+    @Html.LabelFor(m => m.NumeroCelular)
+    @Html.TextBoxFor(m => m.NumeroCelular, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.Vivienda)
+    @Html.TextBoxFor(m => m.Vivienda, new { @class = "form-control" })
+
+
+
+    <button type="submit" onclick="location.href=@Url.Action("Registrar", "Usuarios", null)" class="btn btn-primary">Registrar </button>
+</div>
+}

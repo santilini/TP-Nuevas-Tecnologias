@@ -1,28 +1,55 @@
 ﻿
 @model TPMascotas.ViewModels.AdoptadoViewModel
-    ViewBag.Title = "Adoptados";
+@{ ViewBag.Title = "Adoptados";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+ }    
+
 
 <h2>@ViewBag.message</h2>
 
+<div class="container">
 
-<div class=" container">
-    <h2>
-        Publicaciones de Animales disponibles para adoptar.
-    </h2>
+    <div class="row">
 
-    <ul>
-        @foreach (var Adoptado in Model.Adoptados)
+
+
+        @foreach (var Adoptado in Model.paginacion())
         {
-            <li>
-            @Adoptado.Desc
-            @Adoptado.Edad
-            @Adoptado.Nombre
-                </li>
+
+            <div class="col-md-4 inline-block">
+                <div class="card" style="width: 100%;">
+                    <img src="@Adoptado.Foto" class="card-img-top img-thumbnail" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">  @Adoptado.Nombre</h5>
+                        <p class="card-text">   @Adoptado.Desc</p>
+                        @Html.ActionLink("Adoptame", "Adoptado", new { id = Adoptado.Id }, null);
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
         }
 
-      
-    </ul>
-    @Html.ActionLink("Animales add", "Add","Adoptados")
+
+    </div>
+
+
+
+
 </div>
+
+@Html.ActionLink("Agregar Publicacion", "Add", "Adoptados")
+<script>
+
+    $('input').change(function () {
+        $('.card').hide();
+        var filter = $(this).val();
+        $(".card:contains('" + filter + "')").show();
+    });
+
+
+</script>

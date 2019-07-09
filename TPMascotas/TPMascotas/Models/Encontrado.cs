@@ -12,7 +12,7 @@ namespace TPMascotas.Models
         
         public string Localidad { get; set; }
 
-        public Encontrado(string localidad, string foto, string raza, float tamanio, string Desc, string nombre ="Animal Perdido", string tipoAnimal = "Perro") : base(foto, tipoAnimal, raza, tamanio, nombre, Desc)
+        public Encontrado(string localidad, string foto, string raza, string tamanio, string Desc, string genero, string nombre ="Animal Perdido", string tipoAnimal = "Perro") : base(foto, tipoAnimal, raza, tamanio, nombre, Desc, genero)
         {
             this.Localidad = localidad;
         }

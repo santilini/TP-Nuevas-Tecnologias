@@ -14,12 +14,15 @@ namespace TPMascotas.Models
         public string Foto { get; set; }
         public string TipoAnimal { get; set; }
         public string Raza { get; set; }
-        public float Tamanio { get; set; }
+        public string Tamanio { get; set; }
         public string Nombre { get; set; }
+        public string Genero { get; set; }
      //   [ForeignKey("Usuario")]
      //   public int UsuarioID { get; set; }
      //   public Usuario Usuario { get; set; }
         public string Desc { get; set; }
+        public int UsuarioID { get; set; }
+        public Boolean Visible { get; set; }
 
 
 
@@ -28,11 +31,11 @@ namespace TPMascotas.Models
             Foto = null;
             TipoAnimal = null;
             Raza = null;
-            Tamanio = 0;
+            Tamanio = null;
             Nombre = null;
 
         }
-        protected Publicacion(string foto, string tipoAnimal, string raza, float tamanio, string nombre, string desc)
+        protected Publicacion(string foto, string tipoAnimal, string raza, string tamanio, string nombre, string desc, string Genero)
         {
             this.Foto = foto;
             this.TipoAnimal = tipoAnimal;
@@ -40,6 +43,8 @@ namespace TPMascotas.Models
             this.Tamanio = tamanio;
             this.Nombre = nombre;
             this.Desc = desc;
+            this.Genero = Genero;
+            Visible = true;
         }
     }
 }
