@@ -11,6 +11,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using TPMascotas.ViewModels;
+using System.Threading.Tasks;
 
 namespace TPMascotas.Models
 {
@@ -34,32 +35,51 @@ namespace TPMascotas.Models
             LoginViewModel login = new LoginViewModel();
             return View(login);
         }
+        /* Modificado por otra forma de hacer lo mismo
+         * [HttpPost]
+          public ActionResult Login(LoginViewModel login)
+          {
+              if (ModelState.IsValid)
+              {
+                  var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+                  var authManager = HttpContext.GetOwinContext().Authentication;
+
+                  AppUser user = userManager.Find(login.Email, login.Password);
+                  if (user != null)
+                  {
+                      var ident = userManager.CreateIdentity(user,
+                          DefaultAuthenticationTypes.ApplicationCookie);
+                      //use the instance that has been created. 
+                      authManager.SignIn(
+                          new AuthenticationProperties { IsPersistent = false }, ident);
+                      return Redirect(login.ReturnUrl ?? Url.Action("Index", "Home"));
+                  }
+              }
+              ModelState.AddModelError("", "Invalid username or password");
+              return View(login);
+          }
+          */
         [HttpPost]
-        public ActionResult Login(LoginViewModel login)
+        [AllowAnonymous]
+        public async Task<ActionResult> Login(LoginViewModel login)
         {
             if (ModelState.IsValid)
             {
-                var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
-                var authManager = HttpContext.GetOwinContext().Authentication;
-
-                AppUser user = userManager.Find(login.Email, login.Password);
-                if (user != null)
+                if (login.login())
                 {
-                    var ident = userManager.CreateIdentity(user,
-                        DefaultAuthenticationTypes.ApplicationCookie);
-                    //use the instance that has been created. 
-                    authManager.SignIn(
-                        new AuthenticationProperties { IsPersistent = false }, ident);
-                    return Redirect(login.ReturnUrl ?? Url.Action("Index", "Home"));
+                    Session["UserName"] = login.UserName;
                 }
+                return View();
+            } else
+            {
+                return View("Index");
             }
-            ModelState.AddModelError("", "Invalid username or password");
-            return View(login);
         }
         public ActionResult Registrar()
         {
             AppUser Login = new AppUser();
             return View(Login);
+            
 
         }
         [HttpPost]
@@ -67,7 +87,7 @@ namespace TPMascotas.Models
         {
             var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
 
-            AppUser user = userManager.FindByEmail(usuario.Mail);
+            AppUser user = userManager.FindByName(usuario.UserName);
             if (user != null)
             {
                 return HttpNotFound();

@@ -13,15 +13,6 @@ namespace TPMascotas.Models
         public string MyExtraProperty { get; set; }
        
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Mail { get; set; }
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Contrasenia { get; set; }
-        [Required]
         [DataType(DataType.Text)]
         public string NombreCompleto { get; set; }
         [Required]

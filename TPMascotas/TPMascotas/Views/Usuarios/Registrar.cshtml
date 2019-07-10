@@ -10,10 +10,12 @@
 @using (Html.BeginForm("Registrar", "Usuarios"))
 {
 <div class="form-group">
-    @Html.LabelFor(m => m.Mail)
-    @Html.TextBoxFor(m => m.Mail, new { @class = "form-control" })
-    @Html.LabelFor(m => m.Contrasenia)
-    @Html.TextBoxFor(m => m.Contrasenia, new { @class = "form-control" })
+    @Html.LabelFor(m => m.UserName)
+    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control"})
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    @Html.LabelFor(m => m.PasswordHash)
+    @Html.TextBoxFor(m => m.PasswordHash, new { @class = "form-control" })
     @Html.LabelFor(m => m.Localidad)
     @Html.TextBoxFor(m => m.Localidad, new { @class = "form-control" })
     @Html.LabelFor(m => m.NombreCompleto)

@@ -170,6 +170,10 @@
     <Compile Include="Migrations\201907092103301_Initnueva.Designer.cs">
       <DependentUpon>201907092103301_Initnueva.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907100405348_Initnueva2.cs" />
+    <Compile Include="Migrations\201907100405348_Initnueva2.Designer.cs">
+      <DependentUpon>201907100405348_Initnueva2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Adoptado.cs" />
     <Compile Include="Controllers\AdoptadosController.cs" />
@@ -183,6 +187,7 @@
     <Compile Include="Controllers\PerdidosController.cs" />
     <Compile Include="Models\Publicacion.cs" />
     <Compile Include="Models\PublicacionesController.cs" />
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -298,6 +303,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201907092103301_Initnueva.resx">
       <DependentUpon>201907092103301_Initnueva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907100405348_Initnueva2.resx">
+      <DependentUpon>201907100405348_Initnueva2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
