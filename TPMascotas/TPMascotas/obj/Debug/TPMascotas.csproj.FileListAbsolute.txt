@@ -419,6 +419,5 @@ C:/Users/Alejandro/Source/Repos/santilini/TP-Nuevas-Tecnologias/TPMascotas/TPMas
 \\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\bin\Microsoft.Owin.Security.Cookies.xml
 \\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\bin\Microsoft.Owin.Security.OAuth.xml
 \\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.csprojAssemblyReference.cache
-\\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.Migrations.Initnueva.resources
+\\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.Migrations.init.resources
 \\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.csproj.GenerateResource.cache
-\\Mac\Home\Desktop\NT1TP\TP-Nuevas-Tecnologias\TPMascotas\TPMascotas\obj\Debug\TPMascotas.Migrations.Initnueva2.resources

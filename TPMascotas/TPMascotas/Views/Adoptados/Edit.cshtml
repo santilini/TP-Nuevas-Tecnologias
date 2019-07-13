@@ -1,0 +1,44 @@
+﻿@model TPMascotas.Models.Adoptado
+@{
+    ViewBag.Title = "Editar publicacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div class=" container">
+    <h3>Ingrese</h3>
+    @using (Html.BeginForm("Edit", "Adoptados"))
+
+    {
+    <div class="form-group">
+        @Html.LabelFor(m => m.TipoAnimal)
+        @Html.TextBoxFor(m => m.TipoAnimal, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Nombre)
+        @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Raza)
+        @Html.TextBoxFor(m => m.Raza, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Edad)
+        @Html.TextBoxFor(m => m.Edad, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Tamanio)
+        @Html.TextBoxFor(m => m.Tamanio, new { @class = "form-control" })
+        @Html.LabelFor(m => m.NivelSociabilidad)
+        @Html.TextBoxFor(m => m.NivelSociabilidad, new { @class = "form-control" })
+        @Html.LabelFor(m => m.SociablAanimal)
+        @Html.TextBoxFor(m => m.SociablAanimal, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Sexo)
+        @Html.TextBoxFor(m => m.Sexo, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Foto)
+        @Html.TextBoxFor(m => m.Foto, new { @class = "form-control" })
+        @Html.HiddenFor(m => m.UsuarioID)
+        @Html.HiddenFor(m => m.Id)
+
+
+
+
+        <button type="submit" onclick="location.href=@Url.Action("Edit", "Adoptados", null)" class="btn btn-primary">Editar la publicacion </button>
+
+    </div>
+    }  
+s</div>
+   

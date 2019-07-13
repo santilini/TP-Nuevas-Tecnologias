@@ -21,19 +21,14 @@ namespace TPMascotas.Models
      //   public int UsuarioID { get; set; }
      //   public Usuario Usuario { get; set; }
         public string Desc { get; set; }
-        public int UsuarioID { get; set; }
+        public string UsuarioID { get; set; }
         public Boolean Visible { get; set; }
 
 
 
         public Publicacion()
         {
-            Foto = null;
-            TipoAnimal = null;
-            Raza = null;
-            Tamanio = null;
-            Nombre = null;
-
+            Visible = true;
         }
         protected Publicacion(string foto, string tipoAnimal, string raza, string tamanio, string nombre, string desc, string Genero)
         {

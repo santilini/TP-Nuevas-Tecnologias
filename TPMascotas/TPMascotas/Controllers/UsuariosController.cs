@@ -29,12 +29,15 @@ namespace TPMascotas.Models
             _context.Dispose();
         }
 
-        [HttpGet]
-        public ActionResult Login()
-        {
-            LoginViewModel login = new LoginViewModel();
-            return View(login);
-        }
+     //   [HttpGet]
+      //  public ActionResult Login(LoginViewModel login)
+      //  {
+       //     if (login == null)
+       //     {
+        //        login = new LoginViewModel();
+         //   }
+           // return View(login);
+        //}
         /* Modificado por otra forma de hacer lo mismo
          * [HttpPost]
           public ActionResult Login(LoginViewModel login)
@@ -59,25 +62,55 @@ namespace TPMascotas.Models
               return View(login);
           }
           */
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<ActionResult> Login(LoginViewModel login)
+       // [HttpPost]
+        public  ActionResult Login(LoginViewModel login)
         {
             if (ModelState.IsValid)
             {
+                if (login == null && login.UserName == null)
+                {
+                    ViewBag.Message = "Ingrese sus datos";
+                    return View(login);
+
+                }
                 if (login.login())
                 {
+                    var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+
+                    AppUser user = userManager.FindByName(login.UserName);
+                    if (user == null)
+                    {
+                        ViewBag.Message = "Por alguna extrania razon no se encontro tu usuario, pruebe nueva,emte";
+                        return View(login);
+                    }
                     Session["UserName"] = login.UserName;
+                    Session["UserID"] = user.Id;
+
+                    if (login.ReturnUrl == null)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    return Redirect(login.ReturnUrl);
+
                 }
-                return View();
-            } else
-            {
-                return View("Index");
+                else
+                {
+                    ViewBag.Message = "Login invalido, reintentar";
+                    return View(login);
+                }
+                
             }
+            else
+            {
+                return View(login);
+            }
+               
+           
         }
         public ActionResult Registrar()
         {
             AppUser Login = new AppUser();
+            ViewBag.Message = "Por favor registrese";
             return View(Login);
             
 
@@ -90,16 +123,34 @@ namespace TPMascotas.Models
             AppUser user = userManager.FindByName(usuario.UserName);
             if (user != null)
             {
-                return HttpNotFound();
+                ViewBag.Message = "El nombre de usuario ya esta en uso";
+                return View(usuario);
             }
             else
             {
                 _context.Users.Add(usuario);
                 _context.SaveChanges();
-                return RedirectToRoute("Index", "Home");
+                return RedirectToAction("Index", "Home");
 
             }
         }
 
+        public ActionResult Perfil()
+        {
+            string UserID =(string) Session["UserID"];
+            if (UserID == null)
+                return HttpNotFound();
+            List < Perdido >perdidos  = _context.Perdidos.ToList();
+            if (perdidos.Count() > 0)
+                 perdidos = perdidos.FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
+            List<Adoptado> adoptados = _context.Adoptados.ToList().FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
+            List<Encontrado> encontrados = _context.Encontrados.ToList().FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
+            List<Notificacion> notifs = _context.Notificaciones.ToList().FindAll(m => m.UsuarioPublicacionID.Equals(UserID));
+            PerfilViewModel perfil = new PerfilViewModel(adoptados, perdidos, encontrados, notifs);
+
+            return View(perfil);
+        }
+      
+       
     }
 }

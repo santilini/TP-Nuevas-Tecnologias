@@ -1,0 +1,113 @@
+﻿@model TPMascotas.ViewModels.PerfilViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mi perfil</h2>
+<p> @ViewBag.Message </p>
+
+<div>
+    @if (Model.Notificaciones.Count == 0)
+    {
+        <p> No tienes notificaciones</p>
+    } else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th> Usuario </th>
+                    <th> EMail </th>
+                    <th> Celular </th>
+                    <th> Tu Publicacion </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.NotificacionesParaMostrar())
+                {
+                <tr>
+                    <td> @item.NombreInteresado </td>
+
+                    <td> @item.Mail </td>
+
+                    <td> @item.Telefono </td>
+
+                    <td> @item.Publicacion </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<div class="row">
+    @if (Model.ContarPublicaciones() == 0)
+    {
+        <p> No tienes Publicaciones</p>
+    }
+    else
+    {
+        if (Model.Perdidos.Count() == 0)
+        {
+
+        }
+        else
+        {
+            foreach (var item in Model.Perdidos)
+            {
+                <div class="col-md-4 inline-block">
+                    <div class="card" style="width: 100%;">
+                        <img src="@item.Foto" class="card-img-top img-thumbnail" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">  @item.Zona</h5>
+                            <p class="card-text">   @item.Desc</p>
+                            <p class="card-text">   @item.Recompensa</p>
+                            @Html.ActionLink("Me encontraste?", "Perdido", new { id = item.Id }, null);
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        if (Model.Encontrados.Count() == 0)
+        {
+
+        }
+        else
+        {
+            foreach (var Encontrado in Model.Encontrados)
+            {
+
+                <div class="col-md-4 inline-block">
+                    <div class="card" style="width: 100%;">
+                        <img src="@Encontrado.Foto" class="card-img-top img-thumbnail" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">  @Encontrado.Localidad</h5>
+                            <p class="card-text">   @Encontrado.Desc</p>
+                            @Html.ActionLink("Sos mi duenio?", "Encontrado", new { id = Encontrado.Id }, null);
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        if (Model.Adoptados.Count() == 0)
+        {
+
+        }
+        else
+        {
+            foreach (var Adoptado in Model.Adoptados)
+            {
+                <div class="col-md-4 inline-block">
+                    <div class="card" style="width: 100%;">
+                        <img src="@Adoptado.Foto" class="card-img-top img-thumbnail" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">  @Adoptado.Nombre</h5>
+                            <p class="card-text">   @Adoptado.Desc</p>
+                            @Html.ActionLink("Adoptame", "Adoptado", new { id = Adoptado.Id }, null);
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>

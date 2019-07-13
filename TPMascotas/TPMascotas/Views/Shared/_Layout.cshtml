@@ -12,13 +12,15 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-    
+    @{ var user = HttpContext.Current.Session["UserName"];
+        var id = HttpContext.Current.Session["UserId"];}
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">@Html.ActionLink("Mascotas Web", "Index", "Home", new { area = "" }, new { @class = "navbar navbar-dark bg-dark" })</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse row" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
@@ -34,20 +36,31 @@
                     <a class="nav-link" href="/Adoptados/Index"> Adoptame!</a>
                 </li>
             </ul>
-            <span style="float:right; padding-top: 5px; padding-bottom: 5px;"> @Html.ActionLink("Logueate!", "Login", "Usuarios")  @Html.ActionLink("Registrate!", "Registrar", "Usuarios") </span>
-            @{
-                string User = Convert.ToString(Session["username"]);
-            <h2> Bienvenido @User  </h2>
-            }
+            <div class="float-md-right">
+                @if (user == null)
+                {
+                    @Html.ActionLink("Logueate!", "Login", "Usuarios")
+                    @Html.ActionLink("Registrate!", "Registrar", "Usuarios")
+                }
+                else
+                {
+                    String userName = "Bienvenido " + Convert.ToString(user);
+                 
+                    <a href="/Usuarios/Perfil">@userName </a>
+
+                }
+
+            </div>
+         
         </div>
     </nav>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - MascotasWeb - Nuevas tecnologias 1.</p>
-            </footer>
-        </div>
-        @RenderSection("scripts", required: false)
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - MascotasWeb - Nuevas tecnologias 1.</p>
+        </footer>
+    </div>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
