@@ -42,8 +42,8 @@ namespace TPMascotas.ViewModels
                 {
                     
                     AppUser Usuario = (AppUser)user;
-                    NotifViewModel notif = new NotifViewModel(Usuario.NombreCompleto, Usuario.Email, Usuario.NumeroCelular);
-                    if (item.Tipo == 'a')
+                    NotifViewModel notif = new NotifViewModel(Usuario.NombreCompleto, Usuario.Email, Usuario.NumeroCelular, item.Id);
+                    if (item.Tipo.Equals("a"))
                     {
                         var query = Adoptados.ToList().Find(m => m.Id == item.PubID);
                         if (query != null)
@@ -52,7 +52,7 @@ namespace TPMascotas.ViewModels
                             notif.Publicacion = a.Nombre;
                         }
                     }
-                    else if (item.Tipo == 'e')
+                    else if (item.Tipo.Equals("e"))
                     {
                         var query = Encontrados.ToList().Find(m => m.Id == item.PubID);
                         if (query != null)

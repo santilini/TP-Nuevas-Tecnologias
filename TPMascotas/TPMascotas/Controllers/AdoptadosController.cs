@@ -108,12 +108,24 @@ namespace TPMascotas.Models
             var Adoptado = _context.Adoptados.SingleOrDefault(l => l.Id == id);
             if (UserId == null)
             {
-                return GoLogin("/Adoptados/Adoptar" + id);
+                return GoLogin("/Adoptados/Adoptar/" + id);
             }
-            Notificacion adoptando = new Notificacion(id, 'A', Adoptado.UsuarioID, UserId);
+            Notificacion adoptando = _context.Notificaciones.ToList().Find(l => l.UsuarioInteresadoID.Equals(UserId) && l.UsuarioPublicacionID.Equals(Adoptado.UsuarioID) &&l.Visible && l.PubID == id);
+            if (adoptando != null)
+                return Content("Ya has creado una notificacion para esta publicacion, espera a ser contactado");
+            adoptando = new Notificacion(id, "a", Adoptado.UsuarioID, UserId);
             _context.Notificaciones.Add(adoptando);
             _context.SaveChanges();
             return Content("El usuario ha sido notificado de tu interes por " + Adoptado.Nombre + ".");
+        }
+        public ActionResult Remove(int id)
+        {
+            var Adoptado = _context.Adoptados.SingleOrDefault(l => l.Id == id);
+            if (Adoptado == null)
+                return HttpNotFound();
+            Adoptado.Visible = false;
+            _context.SaveChanges();
+            return Redirect("/Usuarios/Perfil");
         }
         public ActionResult GoLogin(string direccion)
         {

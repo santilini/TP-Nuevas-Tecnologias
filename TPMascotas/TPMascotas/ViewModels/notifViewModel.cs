@@ -11,12 +11,14 @@ namespace TPMascotas.ViewModels
         public string Mail { get; set; }
         public string Telefono { get; set; }
         public string Publicacion { get; set; }
+        public int Nid { get; set; }
 
-        public NotifViewModel(string nombreInteresado, string mail, string telefono)
+        public NotifViewModel(string nombreInteresado, string mail, string telefono, int Nid)
         {
             NombreInteresado = nombreInteresado;
             Mail = mail;
             Telefono = telefono;
+            this.Nid = Nid;
         }
         
     }

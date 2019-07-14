@@ -121,13 +121,15 @@ namespace TPMascotas.Models
             var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
 
             AppUser user = userManager.FindByName(usuario.UserName);
-            if (user != null)
+           
+            if (user != null && userManager.FindByEmail(usuario.Email) != null)
             {
-                ViewBag.Message = "El nombre de usuario ya esta en uso";
+                ViewBag.Message = "El nombre de usuario y/o el mail ya estan en uso";
                 return View(usuario);
             }
             else
             {
+               
                 _context.Users.Add(usuario);
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");
@@ -145,12 +147,21 @@ namespace TPMascotas.Models
                  perdidos = perdidos.FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
             List<Adoptado> adoptados = _context.Adoptados.ToList().FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
             List<Encontrado> encontrados = _context.Encontrados.ToList().FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
-            List<Notificacion> notifs = _context.Notificaciones.ToList().FindAll(m => m.UsuarioPublicacionID.Equals(UserID));
+            List<Notificacion> notifs = _context.Notificaciones.ToList().FindAll(m => m.UsuarioPublicacionID.Equals(UserID) && m.Visible);
             PerfilViewModel perfil = new PerfilViewModel(adoptados, perdidos, encontrados, notifs);
 
             return View(perfil);
         }
-      
-       
+      public ActionResult NotifBorrar(int id)
+        {
+            string UserID = (string)Session["UserID"];
+            Notificacion notif = _context.Notificaciones.ToList().Find(m => m.Id == id && m.UsuarioPublicacionID.Equals(UserID)&& m.Visible);
+            if (notif == null)
+                return HttpNotFound();
+            notif.Visible = false;
+            _context.SaveChanges();
+            return Redirect("/Usuarios/Perfil");
+        }
+
     }
 }

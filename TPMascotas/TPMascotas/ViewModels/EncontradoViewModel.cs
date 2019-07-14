@@ -37,7 +37,7 @@ namespace TPMascotas.ViewModels
           
             while (pagina.Count < CantidadPubPagina && i < Encontrados.Count)
             {
-                if (i < CantidadPubPagina* pag)
+                if (i < CantidadPubPagina* pag && Encontrados[i].Visible)
                 pagina.Add( Encontrados[i]);
 
                 i++;

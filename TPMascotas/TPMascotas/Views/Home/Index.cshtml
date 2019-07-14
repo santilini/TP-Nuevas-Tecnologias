@@ -8,7 +8,7 @@
         Publicaciones de Animales perdidos, encotraste una mascota que crees que puede tener duenio? busca aca.
     </h2>
     <div class="row">
-        @foreach (var Perdido in Model.Perdidos)
+        @foreach (var Perdido in Model.PaginacionP())
         {
             <div class="col-sm-3 inline-block">
 
@@ -26,7 +26,7 @@
         Publicaciones de Animales Encontrados, perdiste tu mascota? por ahi aca puedas encontrarla.
     </h2>
     <div class="row inline-block">
-        @foreach (var Encontrado in Model.paginacion())
+        @foreach (var Encontrado in Model.PaginacionE())
         {
             <div class="col-sm-3">
                 <img src="@Encontrado.Foto" class="img-thumbnail"> 
@@ -41,7 +41,7 @@
         Publicaciones de Animales en adopcion, Queres adoptar una nueva mascota? Busca aca!
     </h2>
     <div class="row">
-        @foreach (var Adoptado in Model.Adoptados)
+        @foreach (var Adoptado in Model.PaginacionA())
         {
             <div class="col-sm-3 inline-block">
 

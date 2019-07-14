@@ -28,7 +28,7 @@ namespace TPMascotas.ViewModels
             Pag = pag;
         }
 
-        public List<Encontrado> paginacion()
+        public List<Encontrado> PaginacionE()
         {
             List<Encontrado> pagina = new List<Encontrado>();
         //    if (Pag * CantidadPubPagina > Encontrados.Count)
@@ -43,8 +43,52 @@ namespace TPMascotas.ViewModels
 
             while (pagina.Count < CantidadPubPagina && i < Encontrados.Count)
             {
-                if (i < CantidadPubPagina * Pag)
+                if (i < CantidadPubPagina * Pag && Encontrados[i].Visible)
                     pagina.Add(Encontrados[i]);
+
+                i++;
+            }
+            return pagina;
+        }
+        public List<Adoptado> PaginacionA()
+        {
+            List<Adoptado> pagina = new List<Adoptado>();
+            //    if (Pag * CantidadPubPagina > Encontrados.Count)
+            //    {
+            //        throw new ArgumentException(V);
+            //   }
+            int i = 0;
+            if (Pag > 1)
+            {
+                i += CantidadPubPagina;
+            }
+
+            while (pagina.Count < CantidadPubPagina && i < Adoptados.Count)
+            {
+                if (i < CantidadPubPagina * Pag && Adoptados[i].Visible)
+                    pagina.Add(Adoptados[i]);
+
+                i++;
+            }
+            return pagina;
+        }
+        public List<Perdido> PaginacionP()
+        {
+            List<Perdido> pagina = new List<Perdido>();
+            //    if (Pag * CantidadPubPagina > Encontrados.Count)
+            //    {
+            //        throw new ArgumentException(V);
+            //   }
+            int i = 0;
+            if (Pag > 1)
+            {
+                i += CantidadPubPagina;
+            }
+
+            while (pagina.Count < CantidadPubPagina && i < Perdidos.Count)
+            {
+                if (i < CantidadPubPagina * Pag && Perdidos[i].Visible)
+                    pagina.Add(Perdidos[i]);
 
                 i++;
             }
