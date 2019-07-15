@@ -3,23 +3,28 @@
     ViewBag.Title = "Adoptado";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div class="container">
 <h2>Adoptado</h2>
 
-<div>
-    <div class="card" style="width: 18rem;">
+<div class="row">
+    <div class="col-3"></div>
+
+    <div class="card inline-block col-6 pad" style="width: 18rem;">
         <img class="card-img-top" src="@Model.Foto" alt="">
         <div class="card-body">
-            <h5 class="card-title"> @Model.TipoAnimal</h5>
-            <p class="card-text">@Model.Desc</p>
-            <p class="card-text">@Model.Sexo</p>
-            <p class="card-text">@Model.Nombre</p>
-            <p class="card-text">@Model.Edad</p>
-            <p class="card-text">@Model.NivelSociabilidad</p>
-            <p class="card-text">@Model.SociablAanimal</p>
+            <h5 class="card-title"><b> Nombre:   </b> @Model.Nombre</h5>
+            <p class="card-text"><b>Descripcion:</b>>@Model.Desc</p>
+            <p class="card-text"><b>Genero:</b>>@Model.Genero</p>
+            <p class="card-text">@Model.TipoAnimal</p>
+            <p class="card-text"><b>Edad: </b>@Model.Edad</p>
+            <p class="card-text"><b>Sociabilidad con personas:</b>@Model.NivelSociabilidad</p>
+            <p class="card-text"><b>Como se lleva con otros animales:</b>@Model.SociablAanimal</p>
 
 
             <a href="/Adoptados/Adoptar/@Model.Id" class="btn btn-primary">Adoptame</a>
         </div>
     </div>
+    <div class="col-3"></div>
+
+</div>
 </div>

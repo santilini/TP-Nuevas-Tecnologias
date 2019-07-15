@@ -3,28 +3,30 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="container">
-    <h2>
+<div class="container cont2">
+    <h3>
         Publicaciones de Animales perdidos, encotraste una mascota que crees que puede tener duenio? busca aca.
-    </h2>
-    <div class="row">
-        @foreach (var Perdido in Model.PaginacionP())
-        {
-            <div class="col-sm-3 inline-block">
-
-                <img src="@Perdido.Foto" class="img-thumbnail"> 
-            </div>
-
-        }
-    </div>
-    
-    @Html.ActionLink("Animales perdidos", "Index", "Perdidos")
-
+    </h3>
 </div>
-<div class=" container">
-    <h2>
+     <div class="container cont1">
+        <div class="row">
+            @foreach (var Perdido in Model.PaginacionP())
+            {
+                <div class="col-sm-3 inline-block">
+                    <img src="@Perdido.Foto" class="img-thumbnail">
+                </div>
+
+            }
+        </div>
+
+        @Html.ActionLink("Animales perdidos", "Index", "Perdidos")
+    </div>
+<div class="container cont2">
+    <h3>
         Publicaciones de Animales Encontrados, perdiste tu mascota? por ahi aca puedas encontrarla.
-    </h2>
+    </h3>
+</div>
+<div class="container cont1">
     <div class="row inline-block">
         @foreach (var Encontrado in Model.PaginacionE())
         {
@@ -36,16 +38,17 @@
     </div>
     @Html.ActionLink("Animales encontrados", "Index", "Encontrados")
 </div>
-<div class=" container">
-    <h2>
+<div class="container cont2">
+    <h3>
         Publicaciones de Animales en adopcion, Queres adoptar una nueva mascota? Busca aca!
-    </h2>
+    </h3>
+</div>
+<div class="container cont1">
     <div class="row">
         @foreach (var Adoptado in Model.PaginacionA())
         {
             <div class="col-sm-3 inline-block">
-
-                <img src="@Adoptado.Foto" class="img-thumbnail"> 
+                <img src="@Adoptado.Foto" class="img-thumbnail">
             </div>
 
         }

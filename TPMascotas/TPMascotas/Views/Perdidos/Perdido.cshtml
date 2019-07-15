@@ -2,18 +2,27 @@
     ViewBag.Title = "Perdido";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div class="container">
 <h2>Perdido</h2>
 
-<div>
-    <div class="card" style="width: 18rem;">
+<div class="row">
+    <div class="col-3"></div>
+
+    <div class="card col-6 inline-block pad" style="width: 18rem;">
         <img class="card-img-top" src="@Model.Foto" alt="">
         <div class="card-body">
-            <h5 class="card-title"> @Model.TipoAnimal</h5>
-            <p class="card-text">@Model.Desc</p>
-            <p class="card-text">@Model.Recompensa</p>
-            <p class="card-text">@Model.Zona</p>
-            <a href="#" class="btn btn-primary">Contactame si tenes info</a>
+            <h5 class="card-title"><b>Zona</b> @Model.Zona</h5>
+            <p class="card-text"><b>Descripcon:</b>@Model.Desc</p>
+            <p class="card-text">@Model.Genero</p>
+            <p class="card-text"><b></b>@Model.TipoAnimal</p>
+            <p class="card-text"><b>Tamanio:</b>@Model.Tamanio</p>
+
+            <p class="card-text"><b>Recompenza: $</b>@Model.Recompensa</p>
+            <p class="card-text"><b>Raza</b>@Model.Raza</p>
+            <a href="/Perdidos/Perder/@Model.Id" class="btn btn-primary">Contacta a mi duenio!</a>
         </div>
     </div>
+    <div class="col-3"></div>
+
+</div>
 </div>

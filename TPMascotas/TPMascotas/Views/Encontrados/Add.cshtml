@@ -12,6 +12,9 @@
     @using (Html.BeginForm("Add", "Encontrados"))
     {
     <div class="form-group">
+
+        @Html.LabelFor(m => m.TipoAnimal)
+        @Html.TextBoxFor(m => m.TipoAnimal, new { @class = "form-control" })
         @Html.LabelFor(m => m.Raza)
         @Html.TextBoxFor(m => m.Raza, new { @class = "form-control" })
         @Html.LabelFor(m => m.Tamanio)
@@ -22,6 +25,8 @@
         @Html.TextBoxFor(m => m.Foto, new { @class = "form-control" })
         @Html.LabelFor(m => m.Desc)
         @Html.TextBoxFor(m => m.Desc, new { @class = "form-control" })
+        @Html.HiddenFor(m => m.UsuarioID)
+
 
 
 

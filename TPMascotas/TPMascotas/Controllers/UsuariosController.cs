@@ -80,7 +80,7 @@ namespace TPMascotas.Models
                     AppUser user = userManager.FindByName(login.UserName);
                     if (user == null)
                     {
-                        ViewBag.Message = "Por alguna extrania razon no se encontro tu usuario, pruebe nueva,emte";
+                        ViewBag.Message = "Por alguna extrania razon no se encontro tu usuario, pruebe nuevamente,";
                         return View(login);
                     }
                     Session["UserName"] = login.UserName;
@@ -109,14 +109,14 @@ namespace TPMascotas.Models
         }
         public ActionResult Registrar()
         {
-            AppUser Login = new AppUser();
+            Usuario Login = new Usuario();
             ViewBag.Message = "Por favor registrese";
             return View(Login);
             
 
         }
         [HttpPost]
-        public ActionResult Registrar(AppUser usuario)
+        public ActionResult Registrar(Usuario usuario)
         {
             var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
 
@@ -129,8 +129,17 @@ namespace TPMascotas.Models
             }
             else
             {
+                user = new AppUser();
+                user.Email = usuario.Email;
+                user.UserName = usuario.UserName;
+                user.PasswordHash = usuario.Password;
+                user.NombreCompleto = usuario.NombreCompleto;
+                user.Vivienda = usuario.Vivienda;
+                user.Localidad = usuario.Localidad;
+                user.NumeroCelular = usuario.NumeroCelular;
                
-                _context.Users.Add(usuario);
+
+                _context.Users.Add(user);
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");
 
@@ -142,9 +151,7 @@ namespace TPMascotas.Models
             string UserID =(string) Session["UserID"];
             if (UserID == null)
                 return HttpNotFound();
-            List < Perdido >perdidos  = _context.Perdidos.ToList();
-            if (perdidos.Count() > 0)
-                 perdidos = perdidos.FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
+            List < Perdido >perdidos  = _context.Perdidos.ToList().FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
             List<Adoptado> adoptados = _context.Adoptados.ToList().FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
             List<Encontrado> encontrados = _context.Encontrados.ToList().FindAll(m => m.UsuarioID.Equals(UserID) && m.Visible);
             List<Notificacion> notifs = _context.Notificaciones.ToList().FindAll(m => m.UsuarioPublicacionID.Equals(UserID) && m.Visible);

@@ -1,7 +1,10 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-   
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Cabin', sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -26,4 +29,39 @@ textarea {
 .animal{
     width: 30%;
     margin: 1%;
+}
+
+nav {
+    margin-top: 0;
+   
+}
+
+.jumbotron{
+    margin-bottom: 0px;
+}
+
+footer {
+    color: #ffffff;
+    bottom: 0;
+    width: 100%;
+    height: 60px; 
+    background: #000;
+}
+.cont1 {
+    padding-top:5px;
+    background-color: #efeae7;
+}
+.cont2 {
+    padding-top: 5px;
+    background-color: #d8d6d1;
+}
+
+.loginder {
+    float: right;
+}
+.thumbnail{
+    border-color: #000000;
+}
+.pad {
+    padding-top: 5px;
 }

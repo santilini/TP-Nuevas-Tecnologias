@@ -7,7 +7,7 @@
     <h2>Perdidos</h2>
 
     <input type="text" id="myInput" class="form-control searchbox-input">
-
+    <hr/>
     <div class="row">
 
 
@@ -20,9 +20,9 @@
                     <img src="@Perdido.Foto" class="card-img-top img-thumbnail" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">  @Perdido.Zona</h5>
-                        <p class="card-text">   @Perdido.Desc</p>
+                        <p class="card-text">   @Perdido.Descripcion</p>
                         <p class="card-text">   @Perdido.Recompensa</p>
-                        @Html.ActionLink("Me encontraste?", "Perdido", new { id = Perdido.Id }, null);
+                        <a href="/Perdidos/Perdido/@Perdido.Id" class="btn btn-primary">Ver mas info</a>
                     </div>
                 </div>
             </div>
@@ -38,11 +38,11 @@
     </div>
 
 
+    @Html.ActionLink("Agregar Publicacion", "Add", "Perdidos")
 
 
 </div>
 
-@Html.ActionLink("Agregar Publicacion", "Add", "Encontrados")
 <script>
 
     $('input').change(function () {

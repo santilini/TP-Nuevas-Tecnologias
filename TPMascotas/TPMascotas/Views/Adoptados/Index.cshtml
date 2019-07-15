@@ -5,10 +5,12 @@
  }    
 
 
-<h2>@ViewBag.message</h2>
 
 <div class="container">
+    <h2>@ViewBag.message</h2>
 
+    <input type="text" id="myInput" class="form-control searchbox-input">
+    <hr/>
     <div class="row">
 
 
@@ -22,7 +24,7 @@
                     <div class="card-body">
                         <h5 class="card-title">  @Adoptado.Nombre</h5>
                         <p class="card-text">   @Adoptado.Desc</p>
-                        @Html.ActionLink("Adoptame", "Adoptado", new { id = Adoptado.Id }, null);
+                        <a href="/Adoptados/Adoptado/@Adoptado.Id" class="btn btn-primary">Ver mas info</a>
                     </div>
                 </div>
             </div>
@@ -39,10 +41,10 @@
 
 
 
+    @Html.ActionLink("Agregar Publicacion", "Add", "Adoptados")
 
 </div>
 
-@Html.ActionLink("Agregar Publicacion", "Add", "Adoptados")
 <script>
 
     $('input').change(function () {

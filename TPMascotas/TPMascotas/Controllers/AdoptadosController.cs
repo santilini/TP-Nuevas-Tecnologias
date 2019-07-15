@@ -64,7 +64,7 @@ namespace TPMascotas.Models
         }
         public ActionResult Adoptado(int id)
         {
-            var Adoptado = _context.Adoptados.SingleOrDefault(l => l.Id == id);
+            var Adoptado = _context.Adoptados.SingleOrDefault(l => l.Id == id && l.Visible);
             if (Adoptado == null)
                 return HttpNotFound();
             string UserID = (string)Session["UserID"];
@@ -76,7 +76,7 @@ namespace TPMascotas.Models
         }
         public ActionResult Edit(int id)
         {
-            var Adoptado = _context.Adoptados.SingleOrDefault(l => l.Id == id);
+            var Adoptado = _context.Adoptados.SingleOrDefault(l => l.Id == id && l.Visible);
             string UserID = (string)Session["UserID"];
 
             if (Adoptado == null || !Adoptado.UsuarioID.Equals(UserID))
@@ -120,6 +120,9 @@ namespace TPMascotas.Models
         }
         public ActionResult Remove(int id)
         {
+            string UserId = (string)Session["UserID"];
+            if (UserId == null)
+                return HttpNotFound();
             var Adoptado = _context.Adoptados.SingleOrDefault(l => l.Id == id);
             if (Adoptado == null)
                 return HttpNotFound();

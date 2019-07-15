@@ -5,14 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Mi perfil</h2>
-<p> @ViewBag.Message </p>
 
-<div>
+<div class="container">
+
+    <h2>Mi perfil</h2>
+    <p> @ViewBag.Message </p>
     @if (Model.Notificaciones.Count == 0)
     {
         <p> No tienes notificaciones</p>
-    } else
+    }
+    else
     {
         <table>
             <thead>
@@ -20,35 +22,37 @@
                     <th class="col-3"> Usuario </th>
                     <th class="col-3"> EMail </th>
                     <th class="col-2"> Celular </th>
-                    <th class="col-3"> Tu Publicacion </th>
+                    <th class="col-3"> Nombre </th>
                     <th class="col-1"> X </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.NotificacionesParaMostrar())
                 {
-                <tr>
-                    <td  class="col-3"> @item.NombreInteresado </td>
+                    <tr>
+                        <td class="col-3"> @item.NombreInteresado </td>
 
-                    <td  class="col-3"> @item.Mail </td>
+                        <td class="col-3"> @item.Mail </td>
 
-                    <td  class="col-2"> @item.Telefono </td>
+                        <td class="col-2"> @item.Telefono </td>
 
-                    <td  class="col-3"> @item.Publicacion </td>
-                    <td  class="col-1"> @Html.ActionLink("X", "NotifBorrar", new { id = item.Nid }, null)</td>
-                </tr>
+                        <td class="col-3"> @item.Publicacion </td>
+                        <td class="col-1"> @Html.ActionLink("X", "NotifBorrar", new { id = item.Nid }, null)</td>
+                    </tr>
                 }
             </tbody>
         </table>
     }
 </div>
-<div class="row">
+<div class="container">
     @if (Model.ContarPublicaciones() == 0)
     {
         <p> No tienes Publicaciones</p>
     }
-    else
+    <div class="row">
+    @if (Model.ContarPublicaciones() > 0)
     {
+
         if (Model.Perdidos.Count() == 0)
         {
 
@@ -64,8 +68,9 @@
                             <h5 class="card-title">  @item.Zona</h5>
                             <p class="card-text">   @item.Desc</p>
                             <p class="card-text">   @item.Recompensa</p>
-                            @Html.ActionLink("Editar", "Perdido", new { id = item.Id }, null);
-                            @Html.ActionLink("Remove", "Perdido", new { id = item.Id }, null);
+
+                            <a href="/Perdidos/Edit/@item.Id" class="btn btn-success">Editar</a>
+                            <a href="/Perdidos/Remove/@item.Id" class="btn btn-danger float-right">Borrar</a>
 
                         </div>
                     </div>
@@ -87,8 +92,9 @@
                         <div class="card-body">
                             <h5 class="card-title">  @Encontrado.Localidad</h5>
                             <p class="card-text">   @Encontrado.Desc</p>
-                            @Html.ActionLink("Editar", "Encontrado", new { id = Encontrado.Id }, null);
-                            @Html.ActionLink("Remove", "Encontrado", new { id = Encontrado.Id }, null);
+
+                            <a href="/Encontrados/Edit/@Encontrado.Id" class="btn btn-success">Editar</a>
+                            <a href="/Encontrados/Remove/@Encontrado.Id" class="btn btn-danger float-right">Borrar</a>
 
                         </div>
                     </div>
@@ -109,8 +115,9 @@
                         <div class="card-body">
                             <h5 class="card-title">  @Adoptado.Nombre</h5>
                             <p class="card-text">   @Adoptado.Desc</p>
-                            @Html.ActionLink("Editar", "Edit","Adoptados", new { id = Adoptado.Id }, null);
-                            @Html.ActionLink("Borrar", "Remove", "Adoptados", new { id = Adoptado.Id }, null);
+
+                            <a href="/Adoptados/Edit/@Adoptado.Id" class="btn btn-success">Editar</a>
+                            <a href="/Adoptados/Remove/@Adoptado.Id" class="btn btn-danger float-right">Borrar</a>
 
                         </div>
                     </div>
@@ -119,3 +126,6 @@
         }
     }
 </div>
+            </div>
+
+        

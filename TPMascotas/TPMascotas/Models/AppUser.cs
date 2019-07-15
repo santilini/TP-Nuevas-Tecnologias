@@ -11,7 +11,7 @@ namespace TPMascotas.Models
     {
         //add your custom properties which have not included in IdentityUser before
         public string MyExtraProperty { get; set; }
-       
+        
         [Required]
         [DataType(DataType.Text)]
         public string NombreCompleto { get; set; }

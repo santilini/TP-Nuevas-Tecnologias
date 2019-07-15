@@ -9,9 +9,12 @@ namespace TPMascotas.Models
 {
     public class Adoptado : Publicacion
     {
+        [Display(Name = "Edad de la mascota?")]
         public int Edad { get; set; }
-       // private List<String> enfermedades;
+        // private List<String> enfermedades;
+        [Display(Name = "Como calificarias que se lleva con otra gente?")]
         public string NivelSociabilidad { get; set; }
+        [Display(Name = "Y con otros animales?")]
         public string SociablAanimal { get; set; }
         public String Sexo { get; set; }
        

@@ -29,6 +29,9 @@
         @Html.TextBoxFor(m => m.SociablAanimal, new { @class = "form-control" })
         @Html.LabelFor(m => m.Sexo)
         @Html.TextBoxFor(m => m.Sexo, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Desc)
+        @Html.TextAreaFor(m => m.Desc, new { @class = "form-control" })
+
         @Html.LabelFor(m => m.Foto)
         @Html.TextBoxFor(m => m.Foto, new { @class = "form-control" })
         @Html.HiddenFor(m => m.UsuarioID)

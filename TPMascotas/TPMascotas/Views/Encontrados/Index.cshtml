@@ -5,12 +5,9 @@
 }
 <div class="container">
     <h2>Encontrados</h2>
-
     <input type="text" id="myInput" class="form-control searchbox-input">
-
+    <hr/>
     <div class="row">
-
-
 
         @foreach (var Encontrado in Model.paginacion())
         {
@@ -21,7 +18,7 @@
                     <div class="card-body">
                         <h5 class="card-title">  @Encontrado.Localidad</h5>
                         <p class="card-text">   @Encontrado.Desc</p>
-                        @Html.ActionLink("Sos mi duenio?", "Encontrado", new { id = Encontrado.Id}, null);
+                        <a href="/Encontrados/Encontrado/@Encontrado.Id" class="btn btn-primary">Ver mas info</a>
                     </div>
                 </div>
             </div>
@@ -33,15 +30,11 @@
 
         }
 
-
     </div>
 
-
-
-    
+    @Html.ActionLink("Agregar Publicacion", "Add", "Encontrados")
 </div>
 
-@Html.ActionLink("Agregar Publicacion", "Add", "Encontrados")
 <script>
     
     $('input').change(function () {

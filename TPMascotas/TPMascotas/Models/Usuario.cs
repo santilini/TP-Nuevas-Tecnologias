@@ -9,34 +9,42 @@ namespace TPMascotas.Models
 {
     public class Usuario
     {
-        [Key]
-        public int Id { get; set; }
+      
         [Required]
+        [DataType(DataType.Text)]
+        public string UserName { get; set; }
         [EmailAddress]
         [Display(Name = "Email")]
-        public string Mail { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "Ingrese Email correcto.")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email invalido.")]
+        public string Email { get; set; }
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Contrasenia { get; set; }
+        [Display(Name = "Ingerese su Password")]
+        public string Password { get; set; }
         [Required]
+        [Display(Name = "Nombre de contacto")]
         [DataType(DataType.Text)]
         public string NombreCompleto { get; set; }
         [Required]
         [DataType(DataType.Text)]
+        [Display(Name = "Ingrese numero de fijo/celular")]
         public string NumeroCelular { get; set; }
         [Required]
         [DataType(DataType.Text)]
+        [Display(Name = "De que tipo es su vivienda? Casa, Departamento? Grande, chica?")]
         public String Vivienda { get; set; }
         [Required]
         [DataType(DataType.Text)]
+        [Display(Name = "Ingrese su localidad/barrio")]
         public string Localidad { get; set; }
 
         public Usuario(string mail, string contrasenia, string nombreCompleto, string numeroCelular, string viveEnCasaODepto, string localidad)
         {
-            Mail = mail;
-            Contrasenia = contrasenia;
+            
+            Email = mail;
+            Password = contrasenia;
             NombreCompleto = nombreCompleto;
             NumeroCelular = numeroCelular;
             Vivienda = viveEnCasaODepto;
